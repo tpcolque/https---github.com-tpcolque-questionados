@@ -16,7 +16,7 @@ import ar.com.ada.api.questionados.services.CategoriaServices;
 public class CategoriaController {
 
     @Autowired
-    CategoriaServices service;
+    private CategoriaServices service;
 
         @GetMapping("/categorias")
         public ResponseEntity<List<Categoria>> traerCategorias(){
