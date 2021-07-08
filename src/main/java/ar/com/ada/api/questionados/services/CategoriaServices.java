@@ -27,7 +27,20 @@ public class CategoriaServices {
             return resultado.get();
             
         return null;
-
     }
+    public boolean crearCategoria(Categoria categoria){
+        if(existe(categoria.getNombre()))
+            return false;
+
+        repository.save(categoria);
+
+        return true;
+    }
+    public boolean existe(String nombre){
+        Categoria categoria = repository.findByNombre(nombre);
+        return categoria != null;
+    }
+
+
     
 }
