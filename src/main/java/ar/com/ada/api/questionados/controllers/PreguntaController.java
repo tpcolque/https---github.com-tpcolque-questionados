@@ -34,8 +34,11 @@ public class PreguntaController {
 
         GenericResponse respuesta = new GenericResponse();
         Pregunta pregunta = service.crearPregunta(preguntaNueva.enunciado, preguntaNueva.categoriaId, preguntaNueva.opciones);
+        //Aca igualo la clase Pregunta con su variable pregunta a todo lo anterior, asi cuando el service
+        //llama al metodo crearPregunta, se guarda en la variable pregunta. Y luego en la linea 40...
         respuesta.isOk = true;
         respuesta.id = pregunta.getPreguntaId(); //Aca va el nuevo id que fue creado en linea 36!
+        //Esa pregunta se iguala a la respuesta.id
         respuesta.message ="La pregunta fue creada con exito";
 
         return ResponseEntity.ok(preguntaNueva);

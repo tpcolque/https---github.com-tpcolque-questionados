@@ -4,6 +4,8 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity //para declarar que esto es una tabla
 @Table(name = "categoria")
 public class Categoria {
@@ -18,6 +20,7 @@ public class Categoria {
     private String descripcion;
 
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER) //mapped by el atributo categoria del objeto pregunta
+    @JsonIgnore
     private List<Pregunta> preguntas = new ArrayList<>();
 
     public List<Pregunta> getPreguntas() {

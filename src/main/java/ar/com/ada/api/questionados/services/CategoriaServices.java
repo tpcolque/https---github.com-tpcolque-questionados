@@ -38,6 +38,7 @@ public class CategoriaServices {
     }
     public boolean existe(String nombre){
         Categoria categoria = repository.findByNombre(nombre);
+        //Aca reemplazo por el metodo anterior
         return categoria != null;
     }
 
