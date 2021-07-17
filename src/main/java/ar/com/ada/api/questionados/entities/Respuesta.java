@@ -8,8 +8,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "respuesta")
 public class Respuesta {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id //primarykey
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincremental
     @Column(name = "respuesta_id")
     private Integer respuestaId;
 
@@ -19,17 +19,17 @@ public class Respuesta {
     private boolean esCorrecta; //por defecto el resultado de boolean es falso
 
     @ManyToOne
-    @JoinColumn(name = "respuesta_id", referencedColumnName = "pregunta_id")
+    @JoinColumn(name = "pregunta_id", referencedColumnName = "pregunta_id") //corregido
     @JsonIgnore
-    private Pregunta pregunta;
-
-    public Pregunta getPregunta() {
+    private Pregunta pregunta; //para que agregamos esta clase? Respondido
+    
+    public Pregunta getPregunta() {  
         return pregunta;
     }
 
     public void setPregunta(Pregunta pregunta) {
         this.pregunta = pregunta;
-        this.pregunta.agregarRespuesta(this);
+        this.pregunta.agregarRespuesta(this); //relacion bidireccional
     }
 
     public Integer getRespuestaId() {

@@ -10,8 +10,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "categoria")
 public class Categoria {
 
-    @Id //Averiguar para que era este id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id //Primary Key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//Autoincremental 
     @Column(name = "categoria_id")
     private Integer categoriaId;
     

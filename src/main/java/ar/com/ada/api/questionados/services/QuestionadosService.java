@@ -18,7 +18,7 @@ public class QuestionadosService {
     public Pregunta traerPreguntaRandom() {
         List<Pregunta> todasLasPreguntas = preguntaService.traerPreguntas();
         int min =1;
-        int max = preguntaService.traerPreguntas().size();
+        int max = todasLasPreguntas.size();
         int random =(int) (Math.random() * ((max - min) + 1)) + min;
         return todasLasPreguntas.get(random - 1);
     }

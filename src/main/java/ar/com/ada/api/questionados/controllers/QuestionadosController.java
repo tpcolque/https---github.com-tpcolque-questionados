@@ -4,10 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import ar.com.ada.api.questionados.entities.Pregunta;
 import ar.com.ada.api.questionados.entities.Respuesta;
@@ -25,7 +22,7 @@ public class QuestionadosController {
     QuestionadosService service; //declaro el service en el controller para usar un metodo de ahi
    
     @GetMapping("/questionados/next") //obtener la siguiente pregunta//el get es para consultar algo
-    public ResponseEntity<PreguntaAResolver> traerPreguntaRandom(){
+    public ResponseEntity<PreguntaAResolver> traerPreguntaRandom(){ //la variable es Pregunta en lo de Brenda
         
         Pregunta pregunta = service.traerPreguntaRandom(); //aca se guarda en variable pregunta
         

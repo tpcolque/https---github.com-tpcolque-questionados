@@ -9,14 +9,14 @@ import javax.persistence.*;
 
 public class Pregunta {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //Autoincremental???
+    @Id //primarykey
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Autoincremental
     @Column(name = "pregunta_id")
     private Integer preguntaId;
 
     private String enunciado;
 
-    @ManyToOne
+    @ManyToOne //join columns van donde esta FK
     @JoinColumn(name ="categoria_id", referencedColumnName = "categoria_id")
     private Categoria categoria;
 

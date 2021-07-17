@@ -10,5 +10,6 @@ public interface CategoriaRepository extends JpaRepository<Categoria, Integer>{
     
     Categoria findByNombre(String nombre);
     //agrego este metodo en el repo para que pueda usarlo en categoriaService
-    
+    boolean existsByNombre(String nombre);
+    Categoria findById(int id);
 }

@@ -19,14 +19,15 @@ public class CategoriaServices {
         return repository.findAll();
     }
     
-    public Categoria buscarCategoriaPorId(Integer categoriaId){
+    public Categoria buscarCategoriaPorId(Integer categoriaId){ //brenda buscarCategoria
 
         Optional<Categoria> resultado = repository.findById(categoriaId);
+        Categoria categoria = null;
 
         if(resultado.isPresent())
             return resultado.get();
             
-        return null;
+        return categoria;
     }
     public boolean crearCategoria(Categoria categoria){
         if(existe(categoria.getNombre()))
@@ -40,6 +41,13 @@ public class CategoriaServices {
         Categoria categoria = repository.findByNombre(nombre);
         //Aca reemplazo por el metodo anterior
         return categoria != null;
+    }
+    public boolean existeV2(String nombre){
+        return repository.existsByNombre(nombre);
+    }
+    public void eliminarCategoriaPorId(Integer id){
+        Categoria categoria = this.buscarCategoriaPorId(id);
+        repository.deleteById(id);
     }
 
 
